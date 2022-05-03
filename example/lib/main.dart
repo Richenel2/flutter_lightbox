@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lightbox/lightbox.dart';
 
@@ -55,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title!),
+        title: Text(widget().title!),
       ),
       body: Center(
         child: Padding(
@@ -89,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   builder: (BuildContext context) {
                                     return LightBox(
                                       initialIndex: position,
-                                      imageType: ImageType.ASSET, images: imagesAsset,
+                                      imageType: ImageType.ASSET,
+                                      images: imagesAsset,
                                     );
                                   },
                                   dismissible: false));
@@ -124,7 +124,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               LightBoxRoute(
                                   builder: (BuildContext context) {
                                     return LightBox(
-                                      initialIndex: position, images: images,
+                                      initialIndex: position,
+                                      images: images,
                                     );
                                   },
                                   dismissible: false));
@@ -160,7 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   builder: (BuildContext context) {
                                     return LightBox(
                                       initialIndex: position,
-                                      imageType: ImageType.BYTES, images: imagesBytes,
+                                      imageType: ImageType.BYTES,
+                                      images: imagesBytes,
                                     );
                                   },
                                   dismissible: false));

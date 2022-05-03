@@ -92,11 +92,13 @@ class _LightBoxState extends State<LightBox> {
     // TODO: implement initState
     super.initState();
     controller = PageController(
-        viewportFraction: 1, keepPage: true, initialPage: widget.initialIndex);
+        viewportFraction: 1,
+        keepPage: true,
+        initialPage: widget().initialIndex);
   }
 
   void changePageViewPosition(int whichPage) {
-    if (whichPage < widget.images.length && whichPage >= 0) {
+    if (whichPage < widget().images.length && whichPage >= 0) {
       controller.jumpToPage(whichPage);
     }
   }
@@ -136,8 +138,8 @@ class _LightBoxState extends State<LightBox> {
         children: [
           BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: widget.blur,
-              sigmaY: widget.blur,
+              sigmaX: widget().blur,
+              sigmaY: widget().blur,
             ),
             child: Column(
               children: [
@@ -153,8 +155,8 @@ class _LightBoxState extends State<LightBox> {
                             right: (MediaQuery.of(context).size.width / 100),
                             bottom: (MediaQuery.of(context).size.height / 100)),
                         child: Icon(
-                          widget.closeIcon,
-                          color: widget.closeIconColor,
+                          widget().closeIcon,
+                          color: widget().closeIconColor,
                         ),
                       ),
                       Padding(
@@ -163,9 +165,9 @@ class _LightBoxState extends State<LightBox> {
                                 (MediaQuery.of(context).size.width / 100) * 16,
                             bottom: (MediaQuery.of(context).size.height / 100)),
                         child: Text(
-                          widget.closeText,
+                          widget().closeText,
                           style: TextStyle(
-                              color: widget.closeTextColor,
+                              color: widget().closeTextColor,
                               fontSize: 20.0,
                               decoration: TextDecoration.none),
                         ),
@@ -182,10 +184,10 @@ class _LightBoxState extends State<LightBox> {
                     child: PageView.builder(
                         controller: controller,
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: widget.images.length,
+                        itemCount: widget().images.length,
                         itemBuilder: (context, position) {
                           return widgetToUse(
-                              widget.imageType, widget.images[position]);
+                              widget().imageType, widget().images[position]);
                         })),
                 Row(
                   children: [
@@ -201,8 +203,8 @@ class _LightBoxState extends State<LightBox> {
                                     (MediaQuery.of(context).size.height / 100) *
                                         1.5),
                             child: Icon(
-                              widget.prevIcon,
-                              color: widget.prevIconColor,
+                              widget().prevIcon,
+                              color: widget().prevIconColor,
                             ),
                           ),
                           Padding(
@@ -211,9 +213,9 @@ class _LightBoxState extends State<LightBox> {
                                     (MediaQuery.of(context).size.height / 100) *
                                         1.5),
                             child: Text(
-                              widget.prevText,
+                              widget().prevText,
                               style: TextStyle(
-                                  color: widget.prevTextColor,
+                                  color: widget().prevTextColor,
                                   decoration: TextDecoration.none,
                                   fontSize: 20.0),
                             ),
